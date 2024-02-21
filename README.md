@@ -1,1 +1,1 @@
-# using-terraform-the-gitops-way
+# Using Terraform the GitOps way

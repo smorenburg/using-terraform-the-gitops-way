@@ -2,14 +2,14 @@
 
 ## Deploying the resources
 
-**Step 1:** Connect to Azure and set the context. Replace `subscriptionID` with the subscription identifier.
+**Step 1:** Connect to Azure and set the context. Replace `subscriptionId` with the subscription identifier.
 
 ```powershell
 Connect-AzAccount
 ```
 
 ```powershell
-Set-AzContext <subscriptionID>
+Set-AzContext <subscriptionId>
 ```
 
 **Step 2:** Create the storage account for the Terraform state. Copy the storage account name.

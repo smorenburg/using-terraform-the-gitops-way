@@ -24,7 +24,7 @@ variable "location_abbreviation" {
 variable "kubernetes_cluster_sku_tier" {
   description = "Optional. The SKU tier that should be used for the Kubernetes cluster."
   type        = string
-  default     = "Standard"
+  default     = "Free"
 }
 
 variable "kubernetes_cluster_node_pool_system_vm_size" {

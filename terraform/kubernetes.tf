@@ -27,8 +27,8 @@ resource "azurerm_kubernetes_cluster" "default" {
     vnet_subnet_id               = azurerm_subnet.aks.id
     zones                        = ["1", "2", "3"]
     enable_auto_scaling          = true
-    min_count                    = 3
-    max_count                    = 9
+    min_count                    = 1
+    max_count                    = 3
 
     upgrade_settings {
       max_surge = "1"
@@ -78,8 +78,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   vnet_subnet_id        = azurerm_subnet.aks.id
   zones                 = ["1", "2", "3"]
   enable_auto_scaling   = true
-  min_count             = 3
-  max_count             = 9
+  min_count             = 1
+  max_count             = 3
 
   upgrade_settings {
     max_surge = "1"

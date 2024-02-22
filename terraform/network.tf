@@ -43,7 +43,7 @@ resource "azurerm_network_security_rule" "allow_internet_web_inbound" {
 }
 
 # Create the public IP address for the NGINX ingress controller.
-resource "azurerm_public_ip" "ingress_nginx_stage" {
+resource "azurerm_public_ip" "ingress_nginx" {
   name                = "pip-nginx-${var.app}-${local.location_abbreviation}"
   location            = var.location
   resource_group_name = azurerm_resource_group.default.name

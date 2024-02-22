@@ -123,9 +123,9 @@ resource "azurerm_federated_identity_credential" "tf_runner" {
   subject             = "system:serviceaccount:flux-system:tf-runner"
 }
 
-# Assign the 'Network Contributor' role to the Kubernetes cluster managed identity on the subnet.
-resource "azurerm_role_assignment" "network_contributor_kubernetes_cluster_subnet" {
-  scope                = azurerm_subnet.aks.id
+# Assign the 'Network Contributor' role to the Kubernetes cluster managed identity on the resource group.
+resource "azurerm_role_assignment" "network_contributor_kubernetes_cluster_resource_group" {
+  scope                = azurerm_resource_group.default.id
   role_definition_name = "Network Contributor"
   principal_id         = azurerm_user_assigned_identity.kubernetes_cluster.principal_id
 }

@@ -42,7 +42,7 @@ cd terraform && \
 terraform init \
   -backend-config="storage_account_name=${STORAGE_ACCOUNT}" \
   -backend-config="resource_group_name=${RESOURCE_GROUP}" \
-  -backend-config="key=${ENVIRONMENT}.${LOCATION}.tfstate"
+  -backend-config="key=${LOCATION}.tfstate"
 ````
 
 **Step 5:** Deploy the resources.

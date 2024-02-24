@@ -25,9 +25,9 @@ export STORAGE_ACCOUNT=<storage_account>
 ````
 
 ```bash
-export APP="nordcloud"
+export APP="nc"
 export LOCATION="northeurope"
-export RESOURCE_GROUP="rg-tfstate-nordcloud-neu"
+export RESOURCE_GROUP="rg-tfstate-nc-neu"
 ````
 
 ```bash

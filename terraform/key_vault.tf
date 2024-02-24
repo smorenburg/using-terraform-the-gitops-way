@@ -1,6 +1,6 @@
 # Create the key vault.
 resource "azurerm_key_vault" "default" {
-  name                       = "kv-${var.app}-${random_string.key_vault.result}"
+  name                       = "kv-${local.suffix}-${random_string.key_vault.result}"
   location                   = var.location
   resource_group_name        = azurerm_resource_group.default.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id

@@ -1,7 +1,7 @@
 $resourceGroupName = "rg-tfstate-nc-neu"
 $location = "northeurope"
 $storageAccountSuffix = "stnc"
-$random = -Join ("0123456789".ToCharArray() | Get-Random -Count 6 | ForEach-Object { [char]$PSItem })
+$random = -Join ("0123456789abcdef".ToCharArray() | Get-Random -Count 4 | ForEach-Object { [char]$PSItem })
 $storageAccountName = $storageAccountSuffix + $random
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location

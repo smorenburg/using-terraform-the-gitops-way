@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      version = ">= 3.84"
+      version = ">= 3.93"
     }
 
     random = {
@@ -70,7 +70,7 @@ resource "azurerm_resource_group" "default" {
 
 # Create the storage account for the logs.
 resource "azurerm_storage_account" "logs" {
-  name                     = "st${var.app}${local.location_abbreviation}${random_id.storage_account.hex}"
+  name                     = "st${var.app}${random_id.storage_account.hex}"
   location                 = var.location
   resource_group_name      = azurerm_resource_group.default.name
   account_tier             = "Standard"
@@ -87,7 +87,7 @@ resource "azurerm_log_analytics_workspace" "default" {
 
 # Create the container registry.
 resource "azurerm_container_registry" "default" {
-  name                = "cr${var.app}${local.location_abbreviation}${random_id.container_registry.hex}"
+  name                = "cr${var.app}${random_id.container_registry.hex}"
   resource_group_name = azurerm_resource_group.default.name
   location            = var.location
   sku                 = "Premium"

@@ -27,7 +27,7 @@ export STORAGE_ACCOUNT="storage_account"
 ```bash
 export APP="nc"
 export LOCATION="northeurope"
-export RESOURCE_GROUP="rg-tfstate-nc-neu"
+export RESOURCE_GROUP="rg-state-nc-neu"
 ````
 
 ```bash

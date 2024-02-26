@@ -21,7 +21,7 @@ Set-AzContext <subscriptionId>
 **Step 3:** Set the variables. Replace `storage_account` with the storage account name.
 
 ```bash
-export STORAGE_ACCOUNT=<storage_account>
+export STORAGE_ACCOUNT="storage_account"
 ````
 
 ```bash

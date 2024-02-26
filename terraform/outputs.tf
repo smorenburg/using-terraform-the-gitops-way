@@ -12,3 +12,8 @@ output "azurerm_public_ip_ingress_nginx_ip_address" {
   description = "The public IP address for the NGINX ingress controller."
   value       = azurerm_public_ip.ingress_nginx.ip_address
 }
+
+output "azurerm_key_vault_default_id" {
+  description = "The key vault identifier."
+  value       = azurerm_key_vault.default.id
+}

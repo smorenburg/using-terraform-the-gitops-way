@@ -9,7 +9,7 @@ Connect-AzAccount
 ```
 
 ```powershell
-Set-AzContext <subscriptionId>
+Set-AzContext "subscriptionId"
 ```
 
 **Step 2:** Create the storage account for the Terraform state. Copy the storage account name.
@@ -64,7 +64,7 @@ brew install fluxcd/tap/flux
 **Step 9:** Set the variable. Replace `gh_token` with the personal access token.
 
 ```bash
-export GITHUB_TOKEN=<gh_token>
+export GITHUB_TOKEN="gh_token"
 ````
 
 **Step 10:** Bootstrap Flux.

@@ -44,7 +44,7 @@ locals {
   public_ip = chomp(data.http.public_ip.response_body)
 
   # Set the authorized IP ranges for the Kubernetes cluster.
-  authorized_ip_ranges = ["${local.public_ip}/32"]
+  authorized_ip_ranges = ["77.174.23.234/32","77.174.23.236/32"]
 }
 
 # Generate a random suffix for the logs storage account.

@@ -28,11 +28,6 @@ provider "azurerm" {
 
 data "azurerm_client_config" "current" {}
 
-# Get the public IP address
-data "http" "public_ip" {
-  url = "https://ifconfig.co/ip"
-}
-
 locals {
   # Lookup and set the location abbreviation, defaults to na (not available).
   location_abbreviation = try(var.location_abbreviation[var.location], "na")
@@ -40,11 +35,12 @@ locals {
   # Construct the name suffix.
   suffix = "${var.app}-${local.location_abbreviation}"
 
-  # Clean and set the public IP address
-  public_ip = chomp(data.http.public_ip.response_body)
-
   # Set the authorized IP ranges for the Kubernetes cluster.
-  authorized_ip_ranges = ["77.174.23.234/32","77.174.23.236/32"]
+  authorized_ip_ranges = [
+    "77.169.37.43/32",
+    "77.174.23.236/32",
+    "212.136.134.106/32"
+  ]
 }
 
 # Generate a random suffix for the logs storage account.
@@ -124,11 +120,18 @@ resource "azurerm_role_assignment" "network_contributor_kubernetes_cluster_resou
   principal_id         = azurerm_user_assigned_identity.kubernetes_cluster.principal_id
 }
 
-# Assign the 'Cluster Admin' role to the current user on the Kubernetes cluster.
-resource "azurerm_role_assignment" "cluster_admin_current_user_kubernetes_cluster" {
+# Assign the 'Cluster Admin' role to Robin Smorenburg.
+resource "azurerm_role_assignment" "cluster_admin_robin_smorenburg_kubernetes_cluster" {
   scope                = azurerm_kubernetes_cluster.default.id
   role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
-  principal_id         = data.azurerm_client_config.current.object_id
+  principal_id         = "5bb948e7-f0c6-4f4d-95e9-627aaa7b99d8"
+}
+
+# Assign the 'Cluster Admin' role to Afira Mujeeb.
+resource "azurerm_role_assignment" "cluster_admin_afira_mujeeb_kubernetes_cluster" {
+  scope                = azurerm_kubernetes_cluster.default.id
+  role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
+  principal_id         = "ad84f8d6-92ca-4f64-8d81-2114e8dfb6b4"
 }
 
 # Assign the 'AcrPull' role to the Kubernetes cluster managed identity on the shared container registry.
